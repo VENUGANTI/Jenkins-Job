@@ -6,14 +6,18 @@ pipeline {
   stages {
     stage ( 'Initialize' ) {
       steps {
-        sh ' ' ' 
+        sh ''' 
       		echo "PATH = ${PATH}"
 		echo "M2	_HOME = ${M2_HOME}"
-            ' ' ' 
+            ''' 
           }
         }
 
         stage ( 'Build' ) {
+		steps {		
            sh 'mvn clean package'
         }
-    }
+        }
+  }
+}	
+	
